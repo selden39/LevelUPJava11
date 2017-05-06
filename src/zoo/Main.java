@@ -27,13 +27,14 @@ public class Main {
 
         // print name Zoo
         Zoo.printNameZoo(zoo1.nameZoo);
+        printAllAnimals(zoo1);
+        printShowProgram(zoo1);
 
         // print all animals in Zoo
                 /*for (int i = 0; i < zoo1.animalsCell.length; i++ ) {
                     Animal.printingAnimal(i, zoo1.animalsCell[i]);
                 }*/
-        printAllAnimals(zoo1);
-
+/*
         // Print Show program
         System.out.println(" -------- Program " + zoo1.nameZoo + " --------");
         Random randomCell = new Random();
@@ -52,7 +53,7 @@ public class Main {
             Animal.game(zoo1.animalsCell[i]);
         }
         System.out.println(zoo1.animalsCell[zoo1.animalsCell.length - 1].kind + " " + zoo1.animalsCell[zoo1.animalsCell.length - 1].name);
-        System.out.println();
+        System.out.println();*/
     }
 
     private static void printAllAnimals(Zoo zoo){
@@ -60,15 +61,26 @@ public class Main {
             Animal.printingAnimal(i, zoo.animalsCell[i]);
         }
     }
-/*
-    private static void printShowProgram(Zoo zoo){
+
+    private static void printShowProgram(Zoo zoo) {
         System.out.println(" -------- Program " + zoo.nameZoo + " --------");
         Random randomCell = new Random();
+
+        //first show - run
         System.out.println("First show:");
         Animal.move(zoo.animalsCell[randomCell.nextInt(zoo.animalsCell.length)]);
-*/
 
+        //second show - fight
+        System.out.println("Second show:");
+        Animal.fight(zoo.animalsCell[randomCell.nextInt(zoo.animalsCell.length)], zoo.animalsCell[randomCell.nextInt(zoo.animalsCell.length)]);
 
-
+        //third show - game
+        System.out.println("Third show:");
+        for (int i = 0; i < zoo.animalsCell.length - 1; i++ ) {
+            Animal.game(zoo.animalsCell[i]);
+        }
+        System.out.println(zoo.animalsCell[zoo.animalsCell.length - 1].kind + " " + zoo.animalsCell[zoo.animalsCell.length - 1].name);
+        System.out.println();
+    }
 
 }
