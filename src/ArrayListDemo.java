@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ArrayListDemo {
     public static void main(String[] args) {
@@ -42,9 +43,22 @@ public class ArrayListDemo {
         }
         System.out.println();
 
+    // get cell
         for (int i = 0; i < arrayListString.size(); i++){
             System.out.print(arrayListString.get(i) + " ");
         }
         System.out.println();
+
+    // iterator
+        System.out.println("--------------");
+        Iterator<String> iterator = arrayListString.iterator();
+        while (iterator.hasNext()) {
+            System.out.print(iterator.next() + " ");
+        }
+
+
+
+
+
     }
 }
