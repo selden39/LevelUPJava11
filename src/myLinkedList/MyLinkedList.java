@@ -15,15 +15,15 @@ public class MyLinkedList {
 
     public static void main(String[] args) {
         MyLinkedList list1 = new MyLinkedList();
-        // addToBeginning element to list
+        // add element to list
         list1.addToBeginning(2);
         list1.addToBeginning(5);
         list1.addToBeginning(3);
         list1.addToBeginning(0);
         list1.addToBeginning(1);
-
         list1.addToEnd(6);
-        list1.addToEnd(6);
+        list1.addToEnd(666);
+        list1.addToBeginning(100);
 
         // print parameter List for learn
         //list1.printListForCheck (list1);
@@ -37,12 +37,16 @@ public class MyLinkedList {
         Element element = new Element(value);
         Element currentElement = root;
         Element preCurrentElement = null;
-        while (currentElement != null){
-            preCurrentElement = currentElement;
-            currentElement = currentElement.next;
+        if (currentElement == null) {
+            addToBeginning(value);
+        } else {
+            while (currentElement != null) {
+                preCurrentElement = currentElement;
+                currentElement = currentElement.next;
+            }
+            preCurrentElement.next = element;
+            element.next = null;
         }
-        preCurrentElement.next = element;
-        element.next = null;
     }
 
     private void addToBeginning (int value) {
@@ -56,7 +60,7 @@ public class MyLinkedList {
         Element currentElement = element;
         while (currentElement != null){
             System.out.printf("Element - %40s", currentElement);
-            System.out.printf("      Value -%2s", currentElement.value);
+            System.out.printf("      Value -%5s", currentElement.value);
             System.out.printf("      Next element - %40s", currentElement.next);
             System.out.println();
             currentElement = currentElement.next;
