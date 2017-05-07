@@ -16,10 +16,10 @@ public class MyLinkedList {
     public static void main(String[] args) {
         MyLinkedList list1 = new MyLinkedList();
         // add element to list
-        list1.addToBeginning(2);
         list1.addToBeginning(5);
+        list1.addToBeginning(4);
         list1.addToBeginning(3);
-        list1.addToBeginning(0);
+        list1.addToBeginning(2);
         list1.addToBeginning(1);
         list1.addToEnd(6);
         list1.addToEnd(666);
@@ -29,13 +29,24 @@ public class MyLinkedList {
         list1.printList(list1.root);
 
         // print current element
-        int index = 2;
-        int index1 = 50;
+        int index = 0;
+        int index1 = 5;
         System.out.printf("Element with index %5s - %45s     value - %5s \n", index, list1.getElementByIndex(index), list1.getElementByIndex(index).value);
         System.out.printf("Element with index %5s - %45s     value - %5s \n", index1, list1.getElementByIndex(index1), list1.getElementByIndex(index1).value);
 
+        // delete Element by index
+        int indexForDelete = 4;
+        list1.deleteElementByIndex(indexForDelete);
+        list1.printList(list1.root);
+
         // print parameter List for learn
         //list1.printListForCheck (list1);
+    }
+
+    private void deleteElementByIndex(int index){
+        Element currentElement;
+        currentElement = getElementByIndex(index - 1);
+        currentElement.next = currentElement.next.next;
     }
 
     private Element getElementByIndex(int index){
