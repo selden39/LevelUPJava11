@@ -28,6 +28,16 @@ public class LinkedListDemo {
         for (String i : myLinkedList){
             System.out.print(i + " ");
         }
+        System.out.println();
+        System.out.println();
+
+    //addAll
+        List<String> myLinkedList2 = new LinkedList<>();
+        myLinkedList2.add("1");
+        myLinkedList2.add("3");
+        myLinkedList.addAll(myLinkedList2);
+        System.out.println(myLinkedList);
+
 
     }
 
