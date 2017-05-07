@@ -26,7 +26,7 @@ public class MyLinkedList {
         list1.addToBeginning(100);
 
         // print all elements
-        list1.printList(list1.root);
+        list1.printList();
 
         // print current element
         int index = 0;
@@ -37,22 +37,39 @@ public class MyLinkedList {
         // delete Element by index
         int indexForDelete = 4;
         list1.deleteElementByIndex(indexForDelete);
-        list1.printList(list1.root);
+        list1.printList();
 
         // does list2 have element?
         MyLinkedList list2 = new MyLinkedList();
-        if (list2.listHasElement(list2)){
+        //list2.addToBeginning(6);
+        if (list2.listHasElement()){
             System.out.println("List " + list2 + " has elements");
         } else {
             System.out.println("List " + list2 + "  hasn't elements");
         }
 
+        // Size list
+        System.out.println("List1 has " + list1.sizeList() + " elements");
+        System.out.println("List2 has " + list2.sizeList() + " elements");
+
         // print parameter List for learn
         //list1.printListForCheck (list1);
     }
 
-    private boolean listHasElement (MyLinkedList list){
-        if (list.root == null) {
+    private int sizeList (){
+        int result = 0;
+        if (listHasElement()){
+            Element currentElement = root;
+            while (currentElement != null){
+                currentElement = currentElement.next;
+                result = result + 1;
+            }
+        }
+        return result;
+    }
+
+    private boolean listHasElement (){
+        if (root == null) {
             return false;
         } else {
             return true;
@@ -102,8 +119,8 @@ public class MyLinkedList {
 
     }
 
-    private void printList (Element element) {
-        Element currentElement = element;
+    private void printList () {
+        Element currentElement = root;
         while (currentElement != null){
             System.out.printf("Element - %40s", currentElement);
             System.out.printf("      Value -%5s", currentElement.value);
