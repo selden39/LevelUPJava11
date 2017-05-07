@@ -25,12 +25,31 @@ public class MyLinkedList {
         list1.addToEnd(666);
         list1.addToBeginning(100);
 
-        // print parameter List for learn
-        //list1.printListForCheck (list1);
-
         // print all elements
         list1.printList(list1.root);
 
+        // print current element
+        int index = 2;
+        int index1 = 50;
+        System.out.printf("Element with index %5s - %45s     value - %5s \n", index, list1.getElementByIndex(index), list1.getElementByIndex(index).value);
+        System.out.printf("Element with index %5s - %45s     value - %5s \n", index1, list1.getElementByIndex(index1), list1.getElementByIndex(index1).value);
+
+        // print parameter List for learn
+        //list1.printListForCheck (list1);
+    }
+
+    private Element getElementByIndex(int index){
+        Element currentElement = root;
+        for (int i = 0; i < index; i++){
+            currentElement = currentElement.next;
+            if (currentElement == null){
+                System.out.println("List hasn't this element");
+    // надо бы подумать что вернуть пользователю
+                break;
+                //return null;
+            }
+        }
+        return currentElement;
     }
 
     private void addToEnd(int value){
