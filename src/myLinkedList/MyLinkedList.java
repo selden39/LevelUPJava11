@@ -39,8 +39,24 @@ public class MyLinkedList {
         list1.deleteElementByIndex(indexForDelete);
         list1.printList(list1.root);
 
+        // does list2 have element?
+        MyLinkedList list2 = new MyLinkedList();
+        if (list2.listHasElement(list2)){
+            System.out.println("List " + list2 + " has elements");
+        } else {
+            System.out.println("List " + list2 + "  hasn't elements");
+        }
+
         // print parameter List for learn
         //list1.printListForCheck (list1);
+    }
+
+    private boolean listHasElement (MyLinkedList list){
+        if (list.root == null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     private void deleteElementByIndex(int index){
@@ -96,10 +112,6 @@ public class MyLinkedList {
             currentElement = currentElement.next;
         }
     }
-
-
-
-
 
     private void printListForCheck (MyLinkedList list){
         System.out.println(list);
